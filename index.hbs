@@ -1,0 +1,139 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+{{#match @custom.publication_cover_style "!=" "None"}}
+    <div class="site-header-content{{#match @custom.publication_cover_style "Large"}} large{{/match}}">
+        {{#if @site.cover_image}}
+            {{!-- This is a responsive image, it loads different sizes depending on device
+            https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433 --}}
+            <img class="site-header-cover"
+                srcset="{{img_url @site.cover_image size="s"}} 300w,
+                        {{img_url @site.cover_image size="m"}} 600w,
+                        {{img_url @site.cover_image size="l"}} 1000w,
+                        {{img_url @site.cover_image size="xl"}} 2000w"
+                sizes="100vw"
+                src="{{img_url @site.cover_image size="xl"}}"
+                alt=""
+            />
+        {{/if}}
+        <div class="header_section">
+
+            <h1 class="header_heading">Stories, Inspiration To Influence Millions </h1>
+            <p class="header_para">LKEEC Teams writes frequently about our vision, ideas, stories for better education.
+            </p>
+
+            <div class="button">
+                <button class="btn btn-sub">Subscribe our newsletter</button>
+            </div>
+
+        </div>
+    </div>
+{{/match}}
+
+     {{!-- <header class="header relative">
+
+        <div class="navigation">
+            <img src="./partials/images/Logo_ECC (2).png" class="logo" alt="logo" />
+
+            <nav class="nav">
+                <ul class="nav_list">
+                    <li class="nav_item">
+                        <a class="nav_link" href="#"> Hello </a>
+                    </li>
+                    <li class="nav_item">
+                        <a class="nav_link" href="#"> About </a>
+                    </li>
+                    <li class="nav_item">
+                        <a class="nav_link" href="#"> Our Approach </a>
+                    </li>
+                    <li class="nav_item">
+                        <a class="nav_link" href="#"> Health & Safety </a>
+                    </li>
+                    <li class="nav_item">
+                        <a class="nav_link" href="#"> Join Now </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="nav_open hidden">
+                <button type="button" class="btn openbutton">
+
+                    <svg class="nav_open_icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+
+            <div id="nav_mob" class="nav_mob hidden">
+                <div class="nav_card">
+
+                    <div class="nav_content">
+
+                        <div>
+                            <img class="nav_logo" src="./partials/images/Logo_ECC (2).png" alt="">
+                        </div>
+
+                        <div class="nav_button">
+                            <button type="button" id="closeButton" class="btn">
+                                <svg class="nav_close_icon" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <div class="nav_mob_item">
+                        <a href="#">Product</a>
+
+                        <a href="#">Features</a>
+
+                        <a href="#">Marketplace</a>
+
+                        <a href="#">Company</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+        <div class="header_section">
+
+            <h1 class="header_heading">Stories, Inspiration To Influence Millions </h1>
+            <p class="header_para">LKEEC Teams writes frequently about our vision, ideas, stories for better education.
+            </p>
+
+            <div class="button">
+                <button class="btn btn-sub">Subscribe our newsletter</button>
+            </div>
+
+        </div>
+
+    </header> --}}
+
+
+{{!-- The main content area --}}
+<main id="site-main" class="site-main outer">
+    <div class="inner posts">
+
+        <div class="post-feed{{#match @custom.feed_layout "List"}} list{{/match}}">
+            {{#foreach posts}}
+
+                {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+                {{> "post-card"}}
+
+            {{/foreach}}
+        </div>
+
+    </div>
+</main>

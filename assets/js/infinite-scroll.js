@@ -110,10 +110,3 @@
 
   requestTick();
 })(window, document);
-
-const closeBtn = document.querySelector(".nav_mob");
-const openBtn = document.querySelector(".nav_open");
-
-openBtn.addEventListener("click", function () {
-  closeBtn.classList.remove("hidden");
-});

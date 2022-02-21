@@ -161,6 +161,10 @@
     border-radius: 0.8rem;
 }
 
+.nav_button {
+    margin-bottom: 2rem;
+}
+
 .nav_open_icon {
     width: 4rem;
     height: auto;
